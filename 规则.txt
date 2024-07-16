@@ -1,0 +1,7 @@
+  游戏开始前玩家需蹲下使用水晶透视书选择队伍,选择后本局无法更改.
+  房主输入"/function usable/(分数)_start"即可以一定分数开始游戏,其中可用100,200,300......1000替换(分数).
+  游戏开始后玩家可使用水晶传送书传送至指定地点,玩家需占领水晶,击杀敌人以降低敌方分数,一方分数降为0则另一方胜利.
+
+  Before the game start,players should use crystal perspective book to choose a team.After choosing you cannot change it.
+  Op should enter "/function usable/(score)_start" to start a game with a certain score,and you should use 100,200,300...1000 to replace (score)
+  After the game started,players can use crystal teleport book to teleport to a certain place.You should occupy the crystals and kill enemies to reduce enemies' score.As a team's score reach 0,the other team win.

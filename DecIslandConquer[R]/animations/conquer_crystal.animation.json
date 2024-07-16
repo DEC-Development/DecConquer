@@ -1,0 +1,45 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.conquer_crystal.span": {
+			"loop": true,
+			"animation_length": 4,
+			"bones": {
+				"crystal": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"4.0": [0, 360, 0]
+					}
+				},
+				"suspended": {
+					"position": {
+						"0.0": {
+							"post": [0, -5, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"2.0": {
+							"post": [0, 5, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"4.0": {
+							"post": [0, -5, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"ring": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"4.0": [0, -360, 0]
+					}
+				},
+				"laser": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"4.0": [0, -360, 0]
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.conquer_crystal": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.red",
+            "Texture.light_red",
+            "Texture.white",
+            "Texture.light_blue",
+            "Texture.blue"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        { "*": "Material.default" }
+      ],
+      "textures": [
+        "Array.skins[query.variant]"
+      ]
+    }
+  }
+}

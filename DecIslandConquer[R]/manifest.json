@@ -1,0 +1,29 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "DecIslandConquer[R]V1.1.1",
+        "description": "Made By LiLeyi",
+        "uuid": "42445949-8592-4c36-a1e8-742b2ad4edf7",
+        "version": [
+            1,
+            1,
+            1
+        ],
+        "min_engine_version": [
+            1,
+            19,
+            73
+        ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "a64d1647-a339-4989-9db7-cf59847f5502",
+            "version": [
+                1,
+                1,
+                1
+            ]
+        }
+    ]
+}

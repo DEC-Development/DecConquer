@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "dec:conquer_crystal",
+      "materials": { "default": "slime_outer" },
+      "textures": {
+        "blue": "textures/entity/conquer_crystal/conquer_crystal_blue",
+        "light_red": "textures/entity/conquer_crystal/conquer_crystal_light_red",
+        "white": "textures/entity/conquer_crystal/conquer_crystal_white",
+        "light_blue": "textures/entity/conquer_crystal/conquer_crystal_light_blue",
+        "red": "textures/entity/conquer_crystal/conquer_crystal_red"
+      },
+      "geometry": {
+        "default": "geometry.conquer_crystal"
+      },
+      "scripts": {
+        "scale": "1",
+        "animate": [
+          "span"
+        ]
+      },
+      "animations": {
+        "span": "animation.conquer_crystal.span"
+      },
+      "render_controllers": [ "controller.render.conquer_crystal" ]
+    }
+  }
+}

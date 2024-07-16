@@ -1,0 +1,62 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Made by LiLeyi",
+    "name": "DecIslandConquer[B]V1.1.1",
+    "uuid": "b65f694f-e9d5-4cac-aea5-19661dc82b56",
+    "version": [
+      1,
+      1,
+      1
+    ],
+    "min_engine_version": [
+      1,
+      20,
+      41
+    ]
+  },
+  "modules": [
+    {
+      "description": "Made by LiLeyi",
+      "type": "data",
+      "uuid": "9fb55a41-4442-4504-bcec-6a709c48560a",
+      "version": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "type": "script",
+      "uuid": "b84ccc78-ec39-4aa5-9c19-78f5200d63d5",
+      "version": [
+        1,
+        1,
+        1
+      ],
+      "entry": "scripts/out/index.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "42445949-8592-4c36-a1e8-742b2ad4edf7",
+      "version": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+        "module_name": "@minecraft/server",
+        "version": "1.12.0-beta"
+    },
+    {
+        "module_name": "@minecraft/server-ui",
+        "version": "1.2.0-beta"
+    },
+    {
+        "module_name": "@minecraft/server-gametest",
+        "version": "1.0.0-beta"
+    }
+  ]
+}

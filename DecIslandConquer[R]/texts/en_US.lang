@@ -1,0 +1,83 @@
+item.dec:crystal_manage_book.name=Crystal Manage Book
+item.dec:crystal_perspective_book.name=Crystal Perspective Book
+item.dec:crystal_teleport_book.name=Crystal Teleport Book
+
+entity.dec:conquer_crystal.name=Conquer Crystal
+
+text.dec:conquer_crystal_place_fail.name=§4Conquer Crystal placing fail,try to place farther from the other crystals
+
+text.dec:conquer_crystal_becoming_red.name=§c§lRed team is taking over the area
+text.dec:conquer_crystal_become_red.name=§c§l%s has been taken by Red team
+text.dec:conquer_crystal_becoming_blue.name=§b§lBlue team is taking over the area
+text.dec:conquer_crystal_become_blue.name=§b§l%s has been taken by blue team
+text.dec:conquer_crystal_losing_blue.name=§c§l%s is taking by red team now
+text.dec:conquer_crystal_losing_red.name=§b§l%s is taking by blue team now
+
+text.dec:crystal_manage_book_title.name=Crystal Manage Book
+text.dec:crystal_manage_book_index_body.name=What do you want to do?
+text.dec:crystal_manage_book_index_create.name=Create
+text.dec:crystal_manage_book_index_manage.name=Manage
+text.dec:crystal_manage_book_index_set.name=Set
+text.dec:crystal_manage_book_create_body.name=What do you want to create?
+text.dec:crystal_manage_book_create_crystal.name=Crystal
+text.dec:crystal_manage_book_create_tp_point.name=Teleport point
+text.dec:crystal_manage_book_create_spawn_point.name=Spawn point
+text.dec:crystal_manage_book_create_entername.name=Enter the name of what you create.If you want to create a team teleport point,enter 'r_' before the name for red team and enter 'b_' for blue team
+text.dec:crystal_manage_book_create_spawn_point_entity.name=If you want to create a spawn point,enter the entity's id which you want to spawn
+text.dec:crystal_manage_book_create_spawn_point_wait_tick.name=If you want to create a spawn point,enter the ticks which will wait after the entity's death
+text.dec:crystal_manage_book_create_spawn_point_fail.name=Fail to create the spawn point,please check whether the relevant parameters are completed and legal
+text.dec:crystal_manage_book_manage_body.name=Choose an object
+text.dec:crystal_manage_book_manage_act.name=What do you want to do?
+text.dec:crystal_manage_book_rename.name=If you want to rename,please enter this blank
+text.dec:crystal_manage_book_manage_tp.name=Teleport
+text.dec:crystal_manage_book_manage_modify.name=Modify
+text.dec:crystal_manage_book_manage_rename.name=Rename.If you want to create a team teleport point,enter 'r_' before the name for red team and enter 'b_' for blue team
+text.dec:crystal_manage_book_rename_spawn_point_entity.name=If you want to modify a spawn point,enter the entity's id which you want to spawn
+text.dec:crystal_manage_book_rename_spawn_point_wait_ticks.name=If you want to modify a spawn point,enter the ticks which will wait after the entity's death
+text.dec:crystal_manage_book_manage_spawn_point_ticks_fail.name=Fail to modify the wait ticks of the spawn point,please check if you have entered a number
+text.dec:crystal_manage_book_manage_delete.name=Delete
+text.dec:crystal_manage_book_manage_die_deduct.name=Die Deduct
+text.dec:crystal_manage_book_manage_max_health.name=Max Health
+text.dec:crystal_manage_book_manage_max_magic.name=Max Magic
+text.dec:crystal_manage_book_manage_random_equipment.name=Random Equipment
+text.dec:crystal_manage_book_manage_auto_detachment.name=Auto Detachment
+text.dec:crystal_manage_book_manage_clear_after_game.name=Clear Backpack After Game
+
+text.dec:crystal_perspective_book_choose_team.name=Choose a team
+text.dec:crystal_perspective_book_choose_team_blue.name=Blue team
+text.dec:crystal_perspective_book_choose_team_red.name=Red team
+text.dec:crystal_perspective_book_action.name=Choose an action
+text.dec:crystal_perspective_book_team_list.name=Team list
+text.dec:crystal_perspective_book_suicide.name=Suicide
+text.dec:crystal_perspective_book_team_list.name=§r§lTeam list§r
+text.dec:crystal_perspective_book_auto_detachment.name=Auto detachment has been opened,you just need to wait for the start of the game!
+
+text.dec:join_blue_team.name=§b§l%s has joined blue team
+text.dec:join_red_team.name=§c§l%s has joined red team
+text.dec:join_blue_team_title.name=§b§lYou have joined blue team
+text.dec:join_red_team_title.name=§c§lYou have joined red team
+
+text.dec:crystal_teleport_book_title.name=Crystal Teleport Book
+text.dec:crystal_teleport_book_not_start.name=Game do not start
+text.dec:crystal_teleport_book_body_blue_team.name=Choose an object to teleport.Below is available for blue team
+text.dec:crystal_teleport_book_body_red_team.name=Choose an object to teleport.Below is available for red team
+text.dec:crystal_teleport_book_no_team.name=You have not joined a team.You can choose a team by using the crystal perspective book when sneaking
+text.dec:crystal_teleport_book_profession.name=Choose a profession
+text.dec:crystal_teleport_book_profession_warrior.name=Warrior
+text.dec:crystal_teleport_book_profession_archer.name=Archer
+text.dec:crystal_teleport_book_profession_wizard.name=Wizard
+
+text.dec:conquer_start_fail.name=Please enter a valid positive integer
+text.dec:conquer_stop.name=§e§lThe game stopped
+
+text.dec:game_red_fail.name=§e§lBlue team win!!!Team has been reset please reselect.The winner of this game:§b§l%s§r
+text.dec:game_blue_fail.name=§e§lRed team win!!!Team has been reset please reselect.The winner of this game:§c§l%s§r
+text.dec:game_start.name=§e§lGame start!!!
+
+text.dec:end_score_list.name=§e§lKill|Die|Occupy:§r
+text.dec:end_score_kill_max.name=§e§lKill the most:§r
+text.dec:end_score_die_max.name=§e§lDie the most:§r
+text.dec:end_score_occupy_max.name=§e§lOccupy the most:§r
+text.dec:end_score_total_score_max.name=§e§lThe comprehensive strengest:§r
+
+text.dec:conquer_introduce.name=§eIntroduction:The game is conducting in two teams,and the initial score should be set by the starter.You need to kill other team's player or occupy the crystals to reduce other team's score.If one team's score reach zero,the team will lose the game.After a death,you can use the crystal teleport book to choose a site to respawn.Every team has one or more initial respawn points and the crystals occupied by your team which you could teleport to.Now,start you conquer!

@@ -1,0 +1,15 @@
+{
+  "resource_pack_name": "vanilla",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "crystal_manage_book": {
+      "textures": "textures/items/crystal_manage_book"
+    },
+    "crystal_perspective_book": {
+      "textures": "textures/items/crystal_perspective_book"
+    },
+    "crystal_teleport_book": {
+      "textures": "textures/items/crystal_teleport_book"
+    }
+  }
+}

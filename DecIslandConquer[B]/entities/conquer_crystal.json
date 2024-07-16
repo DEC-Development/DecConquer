@@ -1,0 +1,230 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dec:conquer_crystal",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "team_judge"
+        ]
+      },
+      "animations": {
+        "team_judge": "animation.conquer_crystal.team_judge"
+      }
+    },
+    "component_groups": {
+      "minecraft:despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "minecraft:red": {
+        "minecraft:variant": {
+          "value": 0
+        }
+      },
+      "minecraft:light_red": {
+        "minecraft:variant": {
+          "value": 1
+        }
+      },
+      "minecraft:white": {
+        "minecraft:variant": {
+          "value": 2
+        }
+      },
+      "minecraft:light_blue": {
+        "minecraft:variant": {
+          "value": 3
+        }
+      },
+      "minecraft:blue": {
+        "minecraft:variant": {
+          "value": 4
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "conquer_crystal"
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "conquer_crystal"
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:health": {
+        "value": 100000,
+        "max": 100000
+      },
+      "minecraft:fire_immune": true,
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:breathable": {
+        "breathesAir": true,
+        "breathesWater": true
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+			"minecraft:nameable": {
+				"always_show": true
+			},
+      "minecraft:is_stackable": {},
+      "minecraft:collision_box": {
+        "width": 1,
+        "height": 2
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "run_command": {
+          "command": [
+            "function conquer_crystal/spawn"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:white"
+          ]
+        }
+      },
+      "minecraft:despawn": {
+        "add": {
+          "component_groups": [
+            "minecraft:despawn"
+          ]
+        }
+      },
+      "minecraft:white": {
+        "remove": {
+          "component_groups": [
+            "minecraft:light_blue",
+            "minecraft:blue",
+            "minecraft:light_red",
+            "minecraft:red"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:white"
+          ]
+        },
+        "run_command": {
+          "command": [
+            "tag @s remove team_blue",
+            "tag @s remove team_red",
+            "tag @s add team_white"
+          ]
+        }
+      },
+      "minecraft:blue": {
+        "remove": {
+          "component_groups": [
+            "minecraft:light_blue",
+            "minecraft:light_red",
+            "minecraft:red",
+            "minecraft:white"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:blue"
+          ]
+        },
+        "run_command": {
+          "command": [
+            "tag @s remove team_white",
+            "tag @s remove team_red",
+            "tag @s add team_blue"
+          ]
+        }
+      },
+      "minecraft:red": {
+        "remove": {
+          "component_groups": [
+            "minecraft:light_blue",
+            "minecraft:blue",
+            "minecraft:light_red",
+            "minecraft:white"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:red"
+          ]
+        },
+        "run_command": {
+          "command": [
+            "tag @s remove team_white",
+            "tag @s remove team_blue",
+            "tag @s add team_red"
+          ]
+        }
+      },
+      "minecraft:light_red": {
+        "remove": {
+          "component_groups": [
+            "minecraft:light_blue",
+            "minecraft:blue",
+            "minecraft:white",
+            "minecraft:red"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:light_red"
+          ]
+        },
+        "run_command": {
+          "command": [
+            "tag @s remove team_blue",
+            "tag @s remove team_red",
+            "tag @s add team_white"
+          ]
+        }
+      },
+      "minecraft:light_blue": {
+        "remove": {
+          "component_groups": [
+            "minecraft:blue",
+            "minecraft:light_red",
+            "minecraft:white",
+            "minecraft:red"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:light_blue"
+          ]
+        },
+        "run_command": {
+          "command": [
+            "tag @s remove team_blue",
+            "tag @s remove team_red",
+            "tag @s add team_white"
+          ]
+        }
+      }
+    }
+  }
+}

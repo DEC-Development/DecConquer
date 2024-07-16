@@ -1,0 +1,14 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.conquer_crystal.team_judge": {
+      "timeline": {
+        "0.5": [
+          "/scriptevent dec:conquer_crystal occupy_statistic"
+        ]
+      },
+      "animation_length": 1,
+      "loop": true
+    }
+  }
+}
