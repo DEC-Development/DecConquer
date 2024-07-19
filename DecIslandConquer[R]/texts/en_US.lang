@@ -23,6 +23,7 @@ text.dec:crystal_manage_book_create_crystal.name=Crystal
 text.dec:crystal_manage_book_create_tp_point.name=Teleport point
 text.dec:crystal_manage_book_create_spawn_point.name=Spawn point
 text.dec:crystal_manage_book_create_entername.name=Enter the name of what you create.If you want to create a team teleport point,enter 'r_' before the name for red team and enter 'b_' for blue team
+text.dec:crystal_manage_book_spawn_point_index_title.name=Spawn Point
 text.dec:crystal_manage_book_create_spawn_point_entity.name=If you want to create a spawn point,enter the entity's id which you want to spawn
 text.dec:crystal_manage_book_create_spawn_point_wait_tick.name=If you want to create a spawn point,enter the ticks which will wait after the entity's death
 text.dec:crystal_manage_book_create_spawn_point_fail.name=Fail to create the spawn point,please check whether the relevant parameters are completed and legal
@@ -42,6 +43,7 @@ text.dec:crystal_manage_book_manage_max_magic.name=Max Magic
 text.dec:crystal_manage_book_manage_random_equipment.name=Random Equipment
 text.dec:crystal_manage_book_manage_auto_detachment.name=Auto Detachment
 text.dec:crystal_manage_book_manage_clear_after_game.name=Clear Backpack After Game
+text.dec:crystal_manage_book_manage_equipment_queue.name=Equipment Queue
 
 text.dec:crystal_perspective_book_choose_team.name=Choose a team
 text.dec:crystal_perspective_book_choose_team_blue.name=Blue team

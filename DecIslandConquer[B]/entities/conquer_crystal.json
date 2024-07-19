@@ -46,6 +46,13 @@
       }
     },
     "components": {
+      "minecraft:timer": {
+        "looping": false,
+        "time": 0.02,
+        "time_down_event": {
+          "event": "minecraft:spawn_judge"
+        }
+      },
       "minecraft:type_family": {
         "family": [
           "conquer_crystal"
@@ -96,7 +103,7 @@
       }
     },
     "events": {
-      "minecraft:entity_spawned": {
+      "minecraft:spawn_judge": {
         "run_command": {
           "command": [
             "function conquer_crystal/spawn"

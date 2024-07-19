@@ -1,9 +1,36 @@
 import { GameMode, world } from "@minecraft/server";
-import { if_in, mult_run_command, str_repeat } from "../func";
+import { if_in, mult_run_command, str_repeat, v3_to_string } from '../func';
 export class ConquerCrystal {
     constructor() { }
-    static create(name, delete_cry = false, old_name) {
-        return true;
+    static teleport(en, cry_name) {
+        en.teleport(ConquerCrystal.searchCrystalByName(cry_name).location);
+    }
+    static searchCrystalByName(name) {
+        let q = {
+            name: name
+        };
+        let crys = world.getDimension('overworld').getEntities(q);
+        return crys[0];
+    }
+    static rename(name, old_name) {
+        ConquerCrystal.searchCrystalByName(old_name).nameTag = name;
+    }
+    static create(name, location) {
+        if (world.getDimension('overworld').getEntities())
+            ConquerCrystal.delete(name);
+        mult_run_command(world.getDimension('overworld'), [
+            'summon dec:conquer_crystal ' + name + v3_to_string(location)
+        ]);
+    }
+    static delete(name) {
+        world.getDimension('overworld').runCommandAsync('event entity @e[c=1,type=dec:conquer_crystal,name=\"' + name + '\"] minecraft:despawn').then(c => {
+            if (c.successCount == 1) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
     }
     static occupyStatistic(cc) {
         var _a, _b;

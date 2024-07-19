@@ -1,6 +1,6 @@
-import { crystal_manage_book, player_property_check } from "./items/crystal_manage_book";
-import { crystal_perspective_book } from "./items/crystal_perspective_book";
-import { crystal_teleport_book } from "./items/crystal_teleport_book";
+import { crystal_manage_book, player_property_check } from "./items/CrystalManageBook";
+import { crystal_perspective_book } from "./items/CrystalPerspectiveBook";
+import { crystal_teleport_book } from "./items/CrystalTeleportBook";
 import { world, system, GameMode } from '@minecraft/server';
 import { get_score, get_score_arr, if_in, mult_run_command, reset_gamer } from "./func";
 import { Team } from "./other_classes/Team";
@@ -8,6 +8,7 @@ import { ConquerCrystal } from "./elements/ConquerCrystal";
 import { ConquerSettings } from "./other_classes/ConquerSettings";
 import { SpawnPoint } from "./elements/SpawnPoint";
 import { ConquerGame } from "./other_classes/ConquerGame";
+import { EquipmentQueue } from './other_classes/EquipmentQueue';
 try {
     world.scoreboard.addObjective('team_score', '§lTeamScore');
     world.scoreboard.addObjective('die_board', 'die_board');
@@ -93,9 +94,14 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
         }
     }
     else if (e.id == 'dec:conquer_start') {
+        let setting = ConquerSettings.getSettings();
         if (ConquerGame.start(e.message)) {
-            if (ConquerSettings.getSettings()['auto_detachment']) {
+            if (setting['auto_detachment']) {
                 Team.autoTeamChoose();
+            }
+            if (setting['equipment_queue']) {
+                let equipment_queue = new EquipmentQueue();
+                equipment_queue.gameStartInit();
             }
         }
         else {
@@ -129,7 +135,7 @@ const tick = () => {
 system.runInterval(tick, 1);
 function check() {
     if (get_score('global', 'game_state') === 1) {
-        let spawn_points = SpawnPoint.getAll();
+        let spawn_points = SpawnPoint.getData();
         Object.keys(spawn_points).forEach(k => {
             SpawnPoint.spawnEntity(spawn_points[k]);
         });
@@ -161,5 +167,9 @@ world.afterEvents.entityHurt.subscribe(e => {
     if (get_score('global', 'game_state') === 1 && ((_a = e.damageSource.damagingEntity) === null || _a === void 0 ? void 0 : _a.typeId) === 'minecraft:player' && e.hurtEntity.typeId === 'minecraft:player') {
         (_b = world.scoreboard.getObjective('damage_board')) === null || _b === void 0 ? void 0 : _b.addScore(e.damageSource.damagingEntity.scoreboardIdentity, e.damage);
     }
+});
+world.beforeEvents.worldInitialize.subscribe(e => {
+    let equipment_queue = new EquipmentQueue();
+    equipment_queue.init();
 });
 //# sourceMappingURL=index.js.map

@@ -23,6 +23,7 @@ text.dec:crystal_manage_book_create_crystal.name=水晶
 text.dec:crystal_manage_book_create_tp_point.name=传送点
 text.dec:crystal_manage_book_create_spawn_point.name=生成点
 text.dec:crystal_manage_book_create_entername.name=输入名称。如果想创建队伍传送点，在名字前输入“r_”以创建红队传送点，“b_”以创建蓝队传送点
+text.dec:crystal_manage_book_spawn_point_index_title.name=生成点
 text.dec:crystal_manage_book_create_spawn_point_entity.name=若需要创建生成点，此项输入生成点生成的实体id
 text.dec:crystal_manage_book_create_spawn_point_wait_tick.name=若需要创建生成点，此项输入生成的实体死亡后，下次生成前的等待时间（单位：游戏刻）
 text.dec:crystal_manage_book_create_spawn_point_fail.name=生成点创建失败，请检查相关参数是否填写完整及格式正确
@@ -42,6 +43,7 @@ text.dec:crystal_manage_book_manage_max_magic.name=最大魔法值
 text.dec:crystal_manage_book_manage_random_equipment.name=随机装备
 text.dec:crystal_manage_book_manage_auto_detachment.name=自动分队
 text.dec:crystal_manage_book_manage_clear_after_game.name=游戏结束清除背包
+text.dec:crystal_manage_book_manage_equipment_queue.name=装备序列
 
 text.dec:crystal_perspective_book_choose_team.name=选择一个队
 text.dec:crystal_perspective_book_choose_team_blue.name=蓝队

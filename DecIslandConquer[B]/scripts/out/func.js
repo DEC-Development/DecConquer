@@ -15,6 +15,9 @@ export function arr_to_v3(arr) {
     };
     return v;
 }
+export function v3_to_string(v) {
+    return ' ' + v.x.toString() + ' ' + v.y.toString() + ' ' + v.z.toString() + ' ';
+}
 export function num_to_bool(n) {
     if (n == 0) {
         return false;

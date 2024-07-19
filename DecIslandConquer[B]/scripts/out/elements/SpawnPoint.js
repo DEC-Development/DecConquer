@@ -2,6 +2,10 @@ import { system, world } from '@minecraft/server';
 import { get_score, arr_to_v3, v3_to_array } from "../func";
 export class SpawnPoint {
     constructor() { }
+    static teleport(en, name) {
+        let spawn_point = SpawnPoint.getData()[name];
+        en.teleport(arr_to_v3(spawn_point.location));
+    }
     static spawnEntity(spawn_point) {
         let name = spawn_point['name'];
         if (get_score('global', 'game_state') == 1) {
@@ -20,7 +24,7 @@ export class SpawnPoint {
         }
     }
     static clearAllSpawnedEntities() {
-        let spawn_points = this.getAll();
+        let spawn_points = this.getData();
         if (Object.keys(spawn_points).length > 0) {
             Object.keys(spawn_points).forEach(k => {
                 const spawnPointEntity = {
@@ -32,9 +36,14 @@ export class SpawnPoint {
             });
         }
     }
-    static getAll() {
+    static getData(manage_body) {
         if (world.getDynamicProperty('spawn_points') != undefined) {
             let s = JSON.parse(world.getDynamicProperty('spawn_points'));
+            if (manage_body != undefined) {
+                for (let k of Object.keys(s)) {
+                    manage_body.push('Spawnpoint ' + k);
+                }
+            }
             return s;
         }
         return {};
@@ -51,7 +60,7 @@ export class SpawnPoint {
             'wait_ticks': wait_ticks
         };
         if (world.getDynamicPropertyIds().indexOf('spawn_points') != -1) {
-            let spawn_points = this.getAll();
+            let spawn_points = this.getData();
             if (Object.keys(spawn_points).indexOf(name) !== -1) {
                 return false;
             }
@@ -69,7 +78,7 @@ export class SpawnPoint {
         }
     }
     static modify(old_name, new_name, loc, dim, entity, wait_ticks) {
-        let s = this.getAll()[old_name];
+        let s = this.getData()[old_name];
         if (new_name === '' || new_name === undefined) {
             new_name = old_name;
         }
@@ -94,7 +103,7 @@ export class SpawnPoint {
         }
     }
     static delete(name) {
-        let spawn_points = SpawnPoint.getAll();
+        let spawn_points = SpawnPoint.getData();
         delete spawn_points[name];
         world.setDynamicProperty('spawn_points', JSON.stringify(spawn_points));
     }

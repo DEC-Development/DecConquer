@@ -1,6 +1,6 @@
-import { crystal_manage_book, player_property_check } from "./items/crystal_manage_book"
-import { crystal_perspective_book } from "./items/crystal_perspective_book"
-import { crystal_teleport_book } from "./items/crystal_teleport_book"
+import { crystal_manage_book, player_property_check } from "./items/CrystalManageBook"
+import { crystal_perspective_book } from "./items/CrystalPerspectiveBook"
+import { crystal_teleport_book } from "./items/CrystalTeleportBook"
 import { world, Player, Entity, system, Vector3, EntityQueryOptions, GameMode, ScoreboardIdentity } from '@minecraft/server';
 import { get_score, get_score_arr, if_in, mult_run_command, reset_gamer } from "./func";
 import { Team } from "./other_classes/Team";
@@ -8,6 +8,10 @@ import { ConquerCrystal } from "./elements/ConquerCrystal";
 import { ConquerSettings } from "./other_classes/ConquerSettings";
 import { SpawnPoint } from "./elements/SpawnPoint";
 import { ConquerGame } from "./other_classes/ConquerGame";
+import Random from "./other_classes/Random";
+import { LootTableEngine } from "./loot/Loot";
+import staff from "./loot/loot_tables/template/weapon/magic_weapon/staff";
+import { EquipmentQueue } from './other_classes/EquipmentQueue';
 
 try {
     world.scoreboard.addObjective('team_score', '§lTeamScore')
@@ -92,9 +96,14 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
             ConquerCrystal.occupyStatistic(<Entity>e.sourceEntity)
         }
     } else if (e.id == 'dec:conquer_start') {
+        let setting = ConquerSettings.getSettings()
         if (ConquerGame.start(e.message)) { 
-            if (ConquerSettings.getSettings()['auto_detachment']){
+            if (setting['auto_detachment']){
                 Team.autoTeamChoose()
+            }
+            if (setting['equipment_queue']){
+                let equipment_queue = new EquipmentQueue()
+                equipment_queue.gameStartInit()
             }
         } else {
             mult_run_command(<Player>e.sourceEntity, [
@@ -127,7 +136,7 @@ system.runInterval(tick, 1)
 
 function check() {
     if (get_score('global', 'game_state') === 1) {
-        let spawn_points = SpawnPoint.getAll()
+        let spawn_points = SpawnPoint.getData()
         Object.keys(spawn_points).forEach(k => {
             SpawnPoint.spawnEntity(spawn_points[k])
         })
@@ -159,4 +168,9 @@ world.afterEvents.entityHurt.subscribe(e=>{
     if (get_score('global','game_state') === 1 && e.damageSource.damagingEntity?.typeId === 'minecraft:player' && e.hurtEntity.typeId === 'minecraft:player'){
         world.scoreboard.getObjective('damage_board')?.addScore(<ScoreboardIdentity >e.damageSource.damagingEntity.scoreboardIdentity,e.damage)
     }
+})
+
+world.beforeEvents.worldInitialize.subscribe(e=>{
+    let equipment_queue = new EquipmentQueue()
+    equipment_queue.init()
 })

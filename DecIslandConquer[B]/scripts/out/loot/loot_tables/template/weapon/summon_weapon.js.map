@@ -1,0 +1,1 @@
+{"version":3,"file":"summon_weapon.js","sourceRoot":"","sources":["../../../../../src/loot/loot_tables/template/weapon/summon_weapon.ts"],"names":[],"mappings":"AAAA,eAAe;IACb,OAAO,EAAE;QACP;YACE,OAAO,EAAE,CAAC;YACV,SAAS,EAAE;gBACT;oBACE,MAAM,EAAE,YAAY;oBACpB,MAAM,EAAE,8DAA8D;oBACtE,QAAQ,EAAE,CAAC;iBACZ;aACF;SACF;KACF;CACF,CAAA"}

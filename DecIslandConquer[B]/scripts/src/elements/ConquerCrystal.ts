@@ -1,15 +1,39 @@
 import { Entity, EntityQueryOptions, GameMode, Player, ScoreboardIdentity, Vector3, world } from "@minecraft/server"
-import { if_in, mult_run_command, str_repeat } from "../func"
+import { if_in, mult_run_command, str_repeat, v3_to_string } from '../func';
 
 export class ConquerCrystal {
     static readonly process_bar = 20
     static readonly process_len = 100 / ConquerCrystal.process_bar
     constructor() { }
 
-    static create(name:string):boolean
-    static create(name:string,delete_cry:boolean,old_name:string):boolean
-    static create(name:string,delete_cry=false,old_name?:string):boolean{
-        return true
+    static teleport(en:Entity|Player,cry_name:string){
+        en.teleport(ConquerCrystal.searchCrystalByName(cry_name).location)
+    }
+    static searchCrystalByName(name:string){
+        let q:EntityQueryOptions={
+            name:name
+        }
+        let crys = world.getDimension('overworld').getEntities(q)
+        return crys[0]
+    }
+    static rename(name:string,old_name:string){
+        ConquerCrystal.searchCrystalByName(old_name).nameTag = name
+    }
+    static create(name:string,location:Vector3){
+        if (world.getDimension('overworld').getEntities())
+        ConquerCrystal.delete(name)
+        mult_run_command(world.getDimension('overworld'), [
+            'summon dec:conquer_crystal '+ name +v3_to_string(location)
+        ])
+    }
+    static delete(name:string){
+        world.getDimension('overworld').runCommandAsync('event entity @e[c=1,type=dec:conquer_crystal,name=\"' + name + '\"] minecraft:despawn').then(c=>{
+            if (c.successCount == 1){
+                return true
+            } else {
+                return false
+            }
+        })
     }
     static occupyStatistic(cc:Entity) {
         const occupyStatisticSetOptions: EntityQueryOptions = {
